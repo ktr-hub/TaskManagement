@@ -1,0 +1,18 @@
+﻿@using TaskManagement.Controllers.ViewModels;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Task Manager</h1>
+    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Tasks" asp-action="Assign">Assign Tasks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Tasks" asp-action="ViewTasks">Task View</a>
+            </li>
+        </ul>
+    </div>
+</div>

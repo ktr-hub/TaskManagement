@@ -1,0 +1,109 @@
+﻿@using TaskManagement.Controllers.ViewModels;
+@{
+    ViewData["Title"] = "View Tasks";
+}
+
+@model ViewTasksViewModel
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="~/js/ViewTasksJS.js"></script>
+
+</head>
+
+<style>
+
+    table {
+        border: 2px solid black;
+    }
+
+    button {
+        border: 2px solid blue;
+    }
+
+</style>
+
+<body>
+    <p id="projects-view"></p>
+     <table style="width:40%">
+            <tr>
+                <th>View</th>
+                <th>Tasks</th>
+            </tr>
+            <tr>
+                <td><label>Filter by Project</label></td>
+                <td>
+                <select id="project-select" onchange="getTasksData(this.value)"></select>
+                </td>
+                </td>
+            </tr>
+            <tr id="task-project-select">
+
+            </tr>
+        </table>
+
+    @* @foreach (var taskProject in @Model.Tasks.DistinctBy(taskP => taskP.ProjectId))
+        {
+            <table >
+
+            </table>
+            <table>
+                 <tr>
+                    <td>
+                        <label class="bold">Project : </label>
+                    </td>
+                    <td>
+                    <label class="bold">@Model.Projects.Where(project => project.ProjectId == taskProject.ProjectId)  </label>
+                    </td>
+                </tr>
+
+            @foreach (var task in Model.Tasks.DistinctBy(taskP => taskP.ProjectId).DistinctBy(taskQ => taskQ.TaskDescription))
+            {
+                <tr>
+                    <td>
+                        <label>Task Description: </label>
+                    </td>
+                    <td>
+                        <label>@task.TaskDescription</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label>Task Start Date : </label>
+                    </td>
+                    <td>
+                        <label>@task.StartDate</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label>Task End Date : </label>
+                    </td>
+                    <td>
+                        <label>@task.DueDate</label>
+                    </td>
+                </tr>
+
+                <table>
+                    <th><td>MID</td><td>Employee Name</td></th>
+
+                    @foreach (var employee in Model.Employees.Where(employeeP => employeeP.EmployeeId == task.EmployeeId))
+                    {
+                        <tr>
+                            <td>@employee.Mid</td>
+                            <td>@employee.EmployeeName</td>
+                        </tr>
+                    }
+
+                    </table>
+            }
+        }
+    </table>*@
+</body>
+</html>
